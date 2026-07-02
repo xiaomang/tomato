@@ -14,9 +14,7 @@ class HomeFindResponse(Struct):
 
 class HomeController(Controller):
     @get(summary="首页")
-    async def find(self, db: AsyncIOMotorDatabase) -> HomeFindResponse:
-        tests = await db.list_collection_names()
-        print(tests)
+    async def find(self) -> HomeFindResponse:
         return HomeFindResponse(
             message=f"Hello, {settings.app_name}!, version {settings.app_version}, {settings.app_description}"
         )
